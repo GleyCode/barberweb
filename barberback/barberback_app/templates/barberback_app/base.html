@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarberBack</title>
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>BarberBack</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'barberback_app:index' %}">Dashboard</a></li>
+                <li><a href="{% url 'clientes:clientes' %}">Gerenciar clientes</a></li>
+                <li><a href="#">Registrar agendamento</a></li> 
+                <li><a href="{% url 'clientes:cadastrar_cliente' %}">Cadastrar cliente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 <span>BarberBack</span> - Gerenciamento Profissional para Barbearias.</p>
+    </footer>
+
+</body>
+</html>

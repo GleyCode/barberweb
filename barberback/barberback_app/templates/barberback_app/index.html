@@ -1,0 +1,43 @@
+{% extends 'barberback_app/base.html' %}
+
+{% block content %}
+    <div>
+
+        <div>
+            <section>
+                <h3>Agendamentos do dia</h3>
+                <ul>
+                    <li>
+                        <div>
+                            <h4>Ricardo Almeida</h4>
+                            <p>Serviço: Corte de Cabelo</p>
+                        </div>
+                        <div>09:00</div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Marcos Souza</h4>
+                            <p>Serviço: Barba & Toalha Quente</p>
+                        </div>
+                        <div>10:30</div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Felipe Guedes</h4>
+                            <p>Serviço: Combo Completo</p>
+                        </div>
+                        <div>14:00</div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <header>
+            <form action="{% url 'contas_admin:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link">Sair do Sistema</button>
+            </form>
+        </header>
+
+    </div>
+{% endblock content %}
