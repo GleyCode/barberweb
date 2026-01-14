@@ -1,0 +1,12 @@
+{% extends 'barberback_app/base.html' %}
+
+{% block content %}
+    <h1>Detalhes do serviço {{ servico.nome }}</h1>
+
+    <p>Nome: {{ servico.nome }}</p>
+    <p>Descrição: {{ servico.descricao }}</p>
+    <p>Preço: {{ servico.preco }}</p>
+
+    <a href="{% url 'servicos:atualizar_servico' servico.id %}">Atualizar informações</a>
+    <a href="{% url 'servicos:deletar_servico' servico.id %}">Excluir serviço</a>
+{% endblock content %}
