@@ -1,0 +1,9 @@
+{% extends 'barberback_app/base.html' %}
+
+{% block content %}
+    <h1>Detalhes do profissional {{ profissional.nome }}</h1>
+
+    <p>Nome: {{ profissional.nome }}</p>
+
+    <a href="{% url 'profissionais:deletar_profissional' profissional.id %}">Excluir cliente</a>
+{% endblock content %}
