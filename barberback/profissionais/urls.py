@@ -6,7 +6,7 @@ app_name = "profissionais"
 urlpatterns = [
     # Ex: dominio.com/profissionais
     path('', 
-         views.ProfissionalListView.as_view(), name="profissional"),
+         views.ProfissionalListView.as_view(), name="profissionais"),
     # Ex.: dominio.com/profissionais/cadastrar_profissional
     path('cadastrar_profissional', 
          views.ProfissionalCreateView.as_view(), name="cadastrar_profissional"),

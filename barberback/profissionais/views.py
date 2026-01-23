@@ -8,7 +8,6 @@ até mesmo, deletar um profissional do banco de dados.
 """
 
 
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, DeleteView, DetailView
 from django.urls import reverse_lazy
@@ -41,7 +40,7 @@ class ProfissionalListView(LoginRequiredMixin, ListView):
 
 class ProfissionalDetailView(LoginRequiredMixin, DetailView):
     """
-    A função dessa view é detalhar o profissional mostrando seus dados.
+    A função dessa view é detalhar um profissional mostrando seus dados.
     """
     model = Profissional
     template_name = "profissionais/detalhes_profissional.html"
@@ -55,5 +54,5 @@ class ProfissionalDeleteView(LoginRequiredMixin, DeleteView):
     """
     model = Profissional
     template_name = "profissionais/deletar_profissional.html"
+    context_object_name = "profissional"
     raise_exception = True
-     

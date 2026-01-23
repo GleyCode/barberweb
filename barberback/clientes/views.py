@@ -6,7 +6,9 @@ from .models import Cliente
 
 
 class ClienteCreateView(LoginRequiredMixin, CreateView):
-    """Cadastra um novo cliente."""
+    """
+    A função dessa view é cadastrar um novo cliente no sistema.
+    """
     model = Cliente
     template_name = 'clientes/cadastrar_cliente.html'
     fields = ['nome', 'telefone', 'email']
@@ -15,7 +17,10 @@ class ClienteCreateView(LoginRequiredMixin, CreateView):
 
 
 class ClienteListView(LoginRequiredMixin, ListView):
-    """Lista todos os clientes cadastrados."""
+    """
+    A função dessa view é criar uma apresentação em lista dos clientes 
+    cadastrados.
+    """
     model = Cliente
     template_name = 'clientes/listagem_clientes.html'
     paginate_by = 10
@@ -25,7 +30,9 @@ class ClienteListView(LoginRequiredMixin, ListView):
     
 
 class ClienteDetailView(LoginRequiredMixin, DetailView):
-    """Apresenta os dados dos clientes."""
+    """
+    A função dessa view é detalhar um cliente mostrando seus dados.
+    """
     model = Cliente
     template_name = 'clientes/detalhes_cliente.html'
     context_object_name = 'cliente'
@@ -33,7 +40,9 @@ class ClienteDetailView(LoginRequiredMixin, DetailView):
     
 
 class ClienteUpdateView(LoginRequiredMixin, UpdateView):
-    """Atualiza os dados dos clientes."""
+    """
+    A função dessa view é atualizar os dados de um cliente.
+    """
     model = Cliente
     template_name = 'clientes/atualizar_cliente.html'
     fields = ['nome', 'telefone', 'email']
@@ -42,7 +51,9 @@ class ClienteUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class ClienteDeleteView(LoginRequiredMixin, DeleteView):
-    """Deleta clientes do banco de dados."""
+    """
+    A função dessa view é excluir um cliente do sistema.
+    """
     model = Cliente
     template_name = 'clientes/deletar_cliente.html'
     context_object_name = 'cliente'

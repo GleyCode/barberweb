@@ -1,36 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BarberBack</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <div>
-            <h1>BarberBack</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{% url 'barberback_app:index' %}">Dashboard</a></li>
-                <li><a href="{% url 'clientes:clientes' %}">Gerenciar clientes</a></li>
-                <li><a href="#">Registrar agendamento</a></li> 
-                <li><a href="{% url 'clientes:cadastrar_cliente' %}">Cadastrar cliente</a></li>
-                <li><a href="{% url 'servicos:servicos' %}">Gerenciar serviços</a></li>
-                <li><a href="{% url 'servicos:cadastrar_servico' %}">Cadastrar serviço</a></li>
-            </ul>
-        </nav>
+      <div>
+        <h1>BarberBack</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{% url 'barberback_app:index' %}">Dashboard</a></li>
+          <li>
+            <a href="{% url 'clientes:clientes' %}">Gerenciar clientes</a>
+          </li>
+          <li><a href="#">Gerenciar agendamento</a></li>
+          <li>
+            <a href="{% url 'servicos:servicos' %}">Gerenciar serviços</a>
+          </li>
+          <li>
+            <a href="{% url 'profissionais:profissionais' %}"
+              >Gerenciar profissionais</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+    <main>{% block content %} {% endblock %}</main>
 
     <footer>
-        <p>&copy; 2024 <span>BarberBack</span> - Gerenciamento Profissional para Barbearias.</p>
+      <p>
+        &copy; 2024 <span>BarberBack</span> - Gerenciamento Profissional para
+        Barbearias.
+      </p>
     </footer>
-
-</body>
+  </body>
 </html>

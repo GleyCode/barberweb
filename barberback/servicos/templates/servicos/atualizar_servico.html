@@ -1,9 +1,6 @@
-{% extends 'barberback_app/base.html' %}
-
-{% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Atualizar dados">
-    </form>
+{% extends 'barberback_app/base.html' %} {% block content %}
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Atualizar dados" />
+</form>
 {% endblock content %}
