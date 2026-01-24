@@ -6,7 +6,7 @@ from .models import Agendamento
 
 
 class AgendamentoCreateView(LoginRequiredMixin, CreateView):
-    """Docstring para AgendamentoCreateView"""
+    """View para criar um novo agendamento."""
     model = Agendamento
     template_name = 'agendamentos/criar_agendamento.html'
     fields = ['cliente', 'profissional', 'servico', 'data_hora']
@@ -15,7 +15,7 @@ class AgendamentoCreateView(LoginRequiredMixin, CreateView):
     
     
 class AgendamentoListView(LoginRequiredMixin, ListView):
-    """Docstring para AgendamentoListView"""
+    """View para listar os agendamentos."""
     model = Agendamento
     template_name = 'agendamentos/listagem_agendamentos.html'
     paginate_by = 10
@@ -25,7 +25,7 @@ class AgendamentoListView(LoginRequiredMixin, ListView):
 
 
 class AgendamentoDetailView(LoginRequiredMixin, DetailView):
-    """Docstring para AgendamentoDetailView"""
+    """View para detalhar os dados de um agendamento."""
     model = Agendamento
     template_name = 'agendamentos/detalhes_agendamento.html'
     context_object_name = 'agendamento'
@@ -33,10 +33,18 @@ class AgendamentoDetailView(LoginRequiredMixin, DetailView):
 
 
 class AgendamentoUpdateView(LoginRequiredMixin, UpdateView):
-    """Docstring para AgendamentoUpdateView"""
-    pass
+    """View para atualizar os dados de uma agendamento."""
+    model = Agendamento
+    template_name = 'agendamentos/atualizar_agendamento.html'
+    fields = ['profissional', 'servico', 'data_hora']
+    success_url = reverse_lazy('agendamentos:agendamentos')
+    raise_exception = True
 
 
 class AgendamentoDeleteView(LoginRequiredMixin, DeleteView):
-    """Docstring para AgendamentoDeleteView"""
-    pass
+    """View para deletar um agendamento."""
+    model = Agendamento
+    template_name = 'agendamentos/deletar_agendamento.html'
+    context_object_name = 'agendamento'
+    success_url = reverse_lazy('agendamentos:agendamentos')
+    raise_exception = True
