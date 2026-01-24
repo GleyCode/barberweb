@@ -1,0 +1,19 @@
+{% extends 'barberback_app/base.html' %} {% block content %}
+<h1>Detalhes do agendamento {{ agendamento.cliente.nome }}</h1>
+
+<p>ID: {{ agendamento.id }}</p>
+<p>Nome: {{ agendamento.cliente.nome }}</p>
+<p>Telefone: {{ agendamento.cliente.telefone }}</p>
+<p>Profissional: {{ agendamento.profissional.nome }}</p>
+<p>Serviço: {{ agendamento.servico.nome }}</p>
+<p>Descrição do serviço: {{ agendamento.servico.descricao }}</p>
+<p>Preço: {{ agendamento.servico.preco }}</p>
+<p>Data/Hora: {{ agendamento.data_hora }}</p>
+
+<a href="{% url 'agendamentos:atualizar_agendamento' agendamento.id %}"
+  >Atualizar informações</a
+>
+<a href="{% url 'agendamentos:deletar_agendamento' agendamento.id %}"
+  >Excluir agendamento</a
+>
+{% endblock content %}

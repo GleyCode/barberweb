@@ -16,21 +16,16 @@ from .models import Profissional
 
 
 class ProfissionalCreateView(LoginRequiredMixin, CreateView):
-    """
-    A função dessa view é cadastrar um novo profissional no sistema.
-    """
+    """View para cadastrar um novo profissional no sistema."""
     model = Profissional
     template_name = "profissionais/cadastrar_profissional.html"
     fields = ['nome']
-    success_url = reverse_lazy("profissionais:profissional")
+    success_url = reverse_lazy("profissionais:profissionais")
     raise_exception = True
     
 
 class ProfissionalListView(LoginRequiredMixin, ListView):
-    """
-    A função dessa view é criar uma apresentação em lista dos profissionais 
-    cadastrados.
-    """
+    """View para apresentar os profissionais cadastrados em lista."""
     model = Profissional
     template_name = "profissionais/listagem_profissionais.html"
     context_object_name = "profissionais"
@@ -39,9 +34,7 @@ class ProfissionalListView(LoginRequiredMixin, ListView):
     
 
 class ProfissionalDetailView(LoginRequiredMixin, DetailView):
-    """
-    A função dessa view é detalhar um profissional mostrando seus dados.
-    """
+    """View para detalhar um profissional mostrando seus dados."""
     model = Profissional
     template_name = "profissionais/detalhes_profissional.html"
     context_object_name = "profissional"
@@ -49,10 +42,9 @@ class ProfissionalDetailView(LoginRequiredMixin, DetailView):
 
 
 class ProfissionalDeleteView(LoginRequiredMixin, DeleteView):
-    """
-    A função dessa view é excluir um profissional do sistema.
-    """
+    """View para excluir um profissional do sistema."""
     model = Profissional
     template_name = "profissionais/deletar_profissional.html"
     context_object_name = "profissional"
+    success_url = reverse_lazy("profissionais:profissionais")
     raise_exception = True

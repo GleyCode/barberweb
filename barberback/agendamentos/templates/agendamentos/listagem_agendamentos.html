@@ -1,0 +1,15 @@
+{% extends 'barberback_app/base.html' %} {% block content %}
+<h1>Listagem dos agendamentos</h1>
+<ul>
+  {% for agendamento in agendamentos %}
+  <li>
+    <a href="{% url 'agendamentos:detalhes_agendamento' agendamento.id %}"
+      >{{ agendamento.cliente.nome }} - {{ agendamento.servico.nome }} - 
+      {{ agendamento.data_hora }}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'agendamentos:criar_agendamento' %}">Agendar novo serviço</a>
+{% endblock content %}

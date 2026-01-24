@@ -12,8 +12,7 @@ class Agendamento(models.Model):
     servico = models.ForeignKey(Servico, on_delete=models.CASCADE)
     data_hora = models.DateTimeField()
 
-    
     def __str__(self):
-        """Cria e retorna uma string com os dados do agendamento."""
-        dados = Agendamento.objects.get(id=self.id)
-        return f"{dados.id} - {dados.cliente.nome} - {dados.profissional.nome} - {dados.servico.nome} - {self.data_hora}"
+        """Retorne uma string com os dados do agendamento."""
+        agendamento = Agendamento.objects.get(id=self.id)
+        return f"{agendamento.id} - {agendamento.cliente.nome} - {agendamento.profissional.nome} - {agendamento.servico.nome} - {self.data_hora}"
