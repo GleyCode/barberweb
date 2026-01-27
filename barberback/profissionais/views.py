@@ -105,6 +105,7 @@ class ProfissionalDeleteView(LoginRequiredMixin, DeleteView):
         raise_exception: Define se uma exceção deve ser levantada quando um
                          usuário não autenticado tenta acessar a view.
     """
+    
     model = Profissional
     template_name = "profissionais/deletar_profissional.html"
     context_object_name = "profissional"
