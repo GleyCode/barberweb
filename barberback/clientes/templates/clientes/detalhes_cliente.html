@@ -1,4 +1,6 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
+{% extends 'barberback_app/base.html' %} 
+
+{% block content %}
 <h1>Detalhes do cliente {{ cliente.nome }}</h1>
 
 <p>Nome: {{ cliente.nome }}</p>
@@ -6,8 +8,8 @@
 <p>Email: {{ cliente.email }}</p>
 <p>Data de cadastro: {{ cliente.cadastrado_em }}</p>
 
-<a href="{% url 'clientes:atualizar_cliente' cliente.id %}"
-  >Atualizar informações</a
->
-<a href="{% url 'clientes:deletar_cliente' cliente.id %}">Excluir cliente</a>
+<a href="{% url 'clientes:atualizar_cliente' cliente.id %}">
+    Atualizar informações</a>
+<a href="{% url 'clientes:deletar_cliente' cliente.id %}">
+    Excluir cliente</a>
 {% endblock content %}

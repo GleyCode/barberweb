@@ -1,10 +1,10 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
+{% extends 'barberback_app/base.html' %} 
+
+{% block content %}
 <form method="post">
-  {% csrf_token %}
-  <p>
-    Você confirma que deseja excluir "{{ profissional.nome }}" da base de dados?
-  </p>
-  {{ form }}
-  <input type="submit" value="Excluir profissional" />
+    {% csrf_token %}
+    <p>Deseja excluir "{{ profissional.nome }}" permanentemente?</p>
+    {{ form }}
+    <input type="submit" value="Excluir profissional" />
 </form>
 {% endblock content %}

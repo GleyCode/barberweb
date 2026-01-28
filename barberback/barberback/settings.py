@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_bootstrap5',
     'contas_admin.apps.ContasAdminConfig',
     'barberback_app.apps.BarberbackAppConfig',
     'agendamentos.apps.AgendamentosConfig',

@@ -1,14 +1,16 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
+{% extends 'barberback_app/base.html' %} 
+
+{% block content %}
 <h1>Listagem dos serviços</h1>
 <ul>
-  {% for servico in servicos %}
-  <li>
-    <a href="{% url 'servicos:detalhes_servico' servico.id %}"
-      >{{ servico.nome }}</a
-    >
-  </li>
-  {% endfor %}
+    {% for servico in servicos %}
+    <li>
+        <a href="{% url 'servicos:detalhes_servico' servico.id %}"> 
+          {{ servico.nome }}</a>
+    </li>
+    {% endfor %}
 </ul>
 
-<a href="{% url 'servicos:cadastrar_servico' %}">Cadastrar novo serviço</a>
+<a href="{% url 'servicos:cadastrar_servico' %}">
+    Cadastrar novo serviço</a>
 {% endblock content %}

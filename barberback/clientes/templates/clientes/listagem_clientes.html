@@ -1,14 +1,16 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
+{% extends 'barberback_app/base.html' %} 
+
+{% block content %}
 <h1>Listagem dos clientes</h1>
 <ul>
-  {% for cliente in clientes %}
-  <li>
-    <a href="{% url 'clientes:detalhes_cliente' cliente.id %}"
-      >{{ cliente.nome }}</a
-    >
-  </li>
-  {% endfor %}
+    {% for cliente in clientes %}
+    <li>
+        <a href="{% url 'clientes:detalhes_cliente' cliente.id %}">
+          {{ cliente.nome }}</a>
+    </li>
+    {% endfor %}
 </ul>
 
-<a href="{% url 'clientes:cadastrar_cliente' %}">Cadastrar novo cliente</a>
+<a href="{% url 'clientes:cadastrar_cliente' %}">
+    Cadastrar novo cliente</a>
 {% endblock content %}

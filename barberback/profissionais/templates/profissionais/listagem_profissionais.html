@@ -1,16 +1,16 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
+{% extends 'barberback_app/base.html' %} 
+
+{% block content %}
 <h1>Listagem dos profissionais</h1>
 <ul>
-  {% for profissional in profissionais %}
-  <li>
-    <a href="{% url 'profissionais:detalhes_profissional' profissional.id %}"
-      >{{ profissional.nome }}</a
-    >
-  </li>
-  {% endfor %}
+    {% for profissional in profissionais %}
+    <li>
+        <a href="{% url 'profissionais:detalhes_profissional' profissional.id %"
+        >{{ profissional.nome }}</a>
+    </li>
+    {% endfor %}
 </ul>
 
-<a href="{% url 'profissionais:cadastrar_profissional' %}"
-  >Cadastrar novo profissionail</a
->
+<a href="{% url 'profissionais:cadastrar_profissional' %}">
+    Cadastrar novo profissionail</a>
 {% endblock content %}

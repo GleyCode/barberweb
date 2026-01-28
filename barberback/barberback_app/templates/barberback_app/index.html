@@ -1,28 +1,31 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
-<div>
-  <div>
-    <section>
-      <h3>Próximos agendamentos do dia</h3>
-      <ul>
-        {% for agendamento in agendamentos %}
-        <li>
-          <div>
-            <h4>{{ agendamento.cliente.nome }}</h4>
-            <p>{{ agendamento.servico.nome }}</p>
-          </div>
-          <div>{{ agendamento.data_hora|date:"H:i" }}</div>
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
-  </div>
+{% extends 'barberback_app/base.html' %} 
 
-  <header>
-    <form action="{% url 'contas_admin:logout' %}" method="post">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-link">Sair do Sistema</button>
-    </form>
-  </header>
+{% block content %}
+<div>
+    <div>
+        <section>
+            <h3>Próximos agendamentos do dia</h3>
+            <ul>
+                {% for agendamento in agendamentos %}
+                <li>
+                    <div>
+                        <h4>{{ agendamento.cliente.nome }}</h4>
+                        <p>{{ agendamento.servico.nome }}</p>
+                    </div>
+                    <div>{{ agendamento.data_hora|date:"H:i" }}</div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+
+    <header>
+        <form action="{% url 'contas_admin:logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-link">Sair do Sistema</button>
+        </form>
+    </header>
 </div>
-<a href="{% url 'servicos:cadastrar_servico' %}">Cadastrar novo serviço</a>
+<a href="{% url 'servicos:cadastrar_servico' %}">
+  Cadastrar novo serviço</a>
 {% endblock content %}

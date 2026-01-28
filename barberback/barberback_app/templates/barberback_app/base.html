@@ -1,45 +1,51 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BarberBack</title>
-  </head>
-  <body>
-    <header>
-      <div>
-        <h1>BarberBack</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="{% url 'barberback_app:index' %}">Dashboard</a></li>
-          <li>
-            <a href="{% url 'clientes:clientes' %}">Gerenciar clientes</a>
-          </li>
-          <li>
-            <a href="{% url 'agendamentos:agendamentos' %}"
-              >Gerenciar agendamento</a
-            >
-          </li>
-          <li>
-            <a href="{% url 'servicos:servicos' %}">Gerenciar serviços</a>
-          </li>
-          <li>
-            <a href="{% url 'profissionais:profissionais' %}"
-              >Gerenciar profissionais</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BarberWeb</title>
 
-    <main>{% block content %} {% endblock %}</main>
+        {% load django_bootstrap5 %}
+        {% bootstrap_css %} 
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+        <header>
+            <div>
+                <h1>BarberWeb</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'barberback_app:index' %}"> 
+                          Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'clientes:clientes' %}">
+                          Clientes</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'agendamentos:agendamentos' %}">
+                          Agendamentos</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'servicos:servicos' %}">
+                          Serviços</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'profissionais:profissionais' %}">
+                            Profissionais</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-    <footer>
-      <p>
-        &copy; 2024 <span>BarberBack</span> - Gerenciamento Profissional para
-        Barbearias.
-      </p>
-    </footer>
-  </body>
+        <main>{% block content %} {% endblock %}</main>
+
+        <footer>
+            <p>
+                &copy; 2024 <span>BarberBack</span> - Gerenciamento Profissional para Barbearias.
+            </p>
+        </footer>
+    </body>
 </html>
