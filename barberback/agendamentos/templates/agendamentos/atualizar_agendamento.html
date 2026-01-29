@@ -1,7 +1,0 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
-<h1>Atualização do agendamento de {{ agendamento.cliente.nome }}</h1>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" value="Atualizar dados" />
-</form>
-{% endblock content %}

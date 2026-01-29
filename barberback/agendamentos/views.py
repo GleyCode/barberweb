@@ -2,14 +2,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import (ListView, CreateView, UpdateView, DeleteView, 
                                   DetailView)
+from .forms import CriarAgendamentoForm, AtualizarAgendamentoForm
 from .models import Agendamento
 
 
 class AgendamentoCreateView(LoginRequiredMixin, CreateView):
     """View para criar um novo agendamento."""
     model = Agendamento
-    template_name = 'agendamentos/criar_agendamento.html'
-    fields = ['cliente', 'profissional', 'servico', 'data_hora']
+    form_class = CriarAgendamentoForm
+    template_name = 'agendamentos/criar_agendamento_form.html'
     success_url = reverse_lazy('agendamentos:agendamentos')
     raise_exception = True
     
@@ -35,8 +36,8 @@ class AgendamentoDetailView(LoginRequiredMixin, DetailView):
 class AgendamentoUpdateView(LoginRequiredMixin, UpdateView):
     """View para atualizar os dados de uma agendamento."""
     model = Agendamento
-    template_name = 'agendamentos/atualizar_agendamento.html'
-    fields = ['profissional', 'servico', 'data_hora']
+    form_class = AtualizarAgendamentoForm
+    template_name = 'agendamentos/atualizar_agendamento_form.html'
     success_url = reverse_lazy('agendamentos:agendamentos')
     raise_exception = True
 
