@@ -1,44 +1,51 @@
+{% load django_bootstrap5 %}
+
 <!doctype html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <title>BarberWeb</title>
 
-        {% load django_bootstrap5 %}
         {% bootstrap_css %} 
         {% bootstrap_javascript %}
     </head>
     <body>
-        <header>
+        <div class="container">
             <div>
                 <h1>BarberWeb</h1>
             </div>
             <nav>
-                <ul>
-                    <li>
-                        <a href="{% url 'barberback_app:index' %}"> 
-                          Dashboard</a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           href="{% url 'barberback_app:index' %}">
+                            Dashboard</a>
                     </li>
-                    <li>
-                        <a href="{% url 'clientes:clientes' %}">
-                          Clientes</a>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           href="{% url 'clientes:clientes' %}">
+                            Clientes</a>
                     </li>
-                    <li>
-                        <a href="{% url 'agendamentos:agendamentos' %}">
-                          Agendamentos</a>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           href="{% url 'agendamentos:agendamentos' %}">
+                            Agendamentos</a>
                     </li>
-                    <li>
-                        <a href="{% url 'servicos:servicos' %}">
-                          Serviços</a>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           href="{% url 'servicos:servicos' %}">
+                            Serviços</a>
                     </li>
-                    <li>
-                        <a href="{% url 'profissionais:profissionais' %}">
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           href="{% url 'profissionais:profissionais' %}">
                             Profissionais</a>
                     </li>
                 </ul>
             </nav>
-        </header>
+        </div>
 
         <main>{% block content %} {% endblock %}</main>
 

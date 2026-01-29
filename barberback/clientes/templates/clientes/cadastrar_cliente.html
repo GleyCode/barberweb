@@ -1,9 +1,21 @@
 {% extends 'barberback_app/base.html' %} 
 
+{% load django_bootstrap5 %}
+
 {% block content %}
-<form method="post">
-    {% csrf_token %} 
-    {{ form.as_p }}
-    <input type="submit" value="Cadastrar cliente" />
-</form>
+
+<div>
+    <form class="form-horizontal" method="post">
+        {% csrf_token %} 
+        
+        {% bootstrap_form_errors form type='non_fields' %}
+
+        {% bootstrap_field form.nome layout='horizontal' size='sm' placeholder='João Fulano Beltrano'%}
+        {% bootstrap_field form.telefone layout='horizontal' size='sm' placeholder='(85) 90000-0000'%}
+        {% bootstrap_field form.email layout='horizontal' size='sm' placeholder='exemplo@email.com'%}
+
+        {% bootstrap_button button_type="submit" content="Cadastrar cliente" %}
+    </form>
+</div>
+
 {% endblock content %}

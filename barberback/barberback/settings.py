@@ -31,19 +31,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django_bootstrap5',
-    'contas_admin.apps.ContasAdminConfig',
-    'barberback_app.apps.BarberbackAppConfig',
-    'agendamentos.apps.AgendamentosConfig',
-    'clientes.apps.ClientesConfig',
-    'profissionais.apps.ProfissionaisConfig',
-    'servicos.apps.ServicosConfig',
+    # Aplicações nativas
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Minhas aplicações
+    'contas_admin.apps.ContasAdminConfig',
+    'barberback_app.apps.BarberbackAppConfig',
+    'agendamentos.apps.AgendamentosConfig',
+    'clientes.apps.ClientesConfig',
+    'profissionais.apps.ProfissionaisConfig',
+    'servicos.apps.ServicosConfig',
+    
+    # Aplicações de terceiros
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
