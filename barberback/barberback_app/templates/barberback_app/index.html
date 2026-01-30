@@ -3,22 +3,29 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
+
 <div>
-    <div>
-        <section>
-            <h3>Próximos agendamentos do dia</h3>
-            <ul>
-                {% for agendamento in agendamentos %}
-                <li>
-                    <div>
-                        <h4>{{ agendamento.cliente.nome }}</h4>
-                        <p>{{ agendamento.servico.nome }}</p>
+    <div class="container mt-4">
+        <h3>Próximos agendamentos do dia</h3>
+            {% for agendamento in agendamentos %}
+                <div class="card mb-3" style="width: 38rem;">
+                    <div class="card-header">
+                        {{ agendamento.data_hora|date:"H:i" }}
                     </div>
-                    <div>{{ agendamento.data_hora|date:"H:i" }}</div>
-                </li>
-                {% endfor %}
-            </ul>
-        </section>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ agendamento.cliente.nome }}</h5>
+                        <p class="card-text">
+                            {{ agendamento.profissional.nome }}
+                        </p>
+                        <p class="card-text">
+                            {{ agendamento.servico.nome}}
+                        </p>
+                        <a href="{% url 'agendamentos:detalhes_agendamento' agendamento.id %}" 
+                        class="btn btn-primary">Detalhes</a>
+                    </div>
+                </div>
+            {% endfor %}
     </div>
 
     <form action="{% url 'contas_admin:logout' %}" method="post">
@@ -27,6 +34,5 @@
         {% bootstrap_button button_type="submit" content="Sair do sistema" %}
     </form>
 </div>
-<a href="{% url 'servicos:cadastrar_servico' %}">
-    Cadastrar novo serviço</a>
+
 {% endblock content %}
