@@ -14,6 +14,5 @@ class Profissional(models.Model):
     nome = models.CharField(max_length=100)
 
     def __str__(self):
-        """Crie e retorne uma string com os dados do profissional."""
-        dados = Profissional.objects.get(id=self.id)
-        return f"[{dados.id} - {self.nome}]"
+        """Retorne o nome do profissional."""
+        return self.nome

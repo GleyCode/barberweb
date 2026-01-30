@@ -23,6 +23,5 @@ class Cliente(models.Model):
     cadastrado_em = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        """Crie e retorne uma string com os dados do cliente."""
-        dados = f"[{self.nome} - {self.telefone} - {self.email}]"
-        return dados
+        """Retorne o nome do cliente."""
+        return self.nome

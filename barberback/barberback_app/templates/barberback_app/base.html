@@ -5,54 +5,134 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <title>BarberWeb</title>
 
         {% bootstrap_css %} 
-        {% bootstrap_javascript %}
     </head>
     <body>
-        <div class="container">
-            <div>
-                <h1>BarberWeb</h1>
-            </div>
-            <nav>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" 
-                           href="{% url 'barberback_app:index' %}">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">BarberWeb</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" 
+                            href="{% url 'barberback_app:index' %}">
                             Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" 
-                           href="{% url 'clientes:clientes' %}">
-                            Clientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" 
-                           href="{% url 'agendamentos:agendamentos' %}">
-                            Agendamentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" 
-                           href="{% url 'servicos:servicos' %}">
-                            Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" 
-                           href="{% url 'profissionais:profissionais' %}">
-                            Profissionais</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                        </li>
 
-        <main>{% block content %} {% endblock %}</main>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" 
+                                href="#" 
+                                id="navbarDropdown" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                Clientes</a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" 
+                                        href="{% url 'clientes:clientes' %}">
+                                        Gerenciar clientes</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" 
+                                        href="{% url 'clientes:cadastrar_cliente' %}">
+                                        Cadastrar cliente</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" 
+                                href="#" 
+                                id="navbarDropdown" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                Agendamentos</a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" 
+                                         href="{% url 'agendamentos:agendamentos' %}">
+                                        Gerenciar agendamentos</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" 
+                                        href="{% url 'agendamentos:criar_agendamento' %}">
+                                        Criar agendamento</a>
+                                </li>
+                            </ul>
+                        </li>
 
-        <footer>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" 
+                                href="#" 
+                                id="navbarDropdown" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                Serviços</a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" 
+                                        href="{% url 'servicos:servicos' %}">
+                                        Gerenciar serviços</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" 
+                                        href="{% url 'servicos:cadastrar_servico' %}">
+                                        Cadastrar serviço</a>
+                                </li>
+                            </ul>
+                        </li>  
+                         
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" 
+                                href="#" 
+                                id="navbarDropdown" 
+                                role="button" 
+                                data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                Profissionais</a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" 
+                                        href="{% url 'profissionais:profissionais' %}">
+                                        Gerenciar profissionais</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" 
+                                        href="{% url 'profissionais:cadastrar_profissional' %}">
+                                        Cadastrar profissional</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container mt-4">
+            {% block content %} {% endblock %}
+        </main>
+
+        <footer class="container text-center mt-5 py-3 border-top">
             <p>
-                &copy; 2024 <span>BarberBack</span> - Gerenciamento Profissional para Barbearias.
+                &copy; 2026 <span class="fw-bold text-primary">BarberBack</span> - Gerenciamento Profissional para Barbearias.
             </p>
         </footer>
+
+        {% bootstrap_javascript %}
     </body>
-</html>
+
+</html> 

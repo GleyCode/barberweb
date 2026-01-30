@@ -1,4 +1,6 @@
-{% extends 'barberback_app/base.html' %} {% block content %}
+{% extends 'barberback_app/base.html' %} 
+
+{% block content %}
 <h1>Detalhes do agendamento {{ agendamento.cliente.nome }}</h1>
 
 <p>ID: {{ agendamento.id }}</p>
@@ -11,9 +13,7 @@
 <p>Data/Hora: {{ agendamento.data_hora }}</p>
 
 <a href="{% url 'agendamentos:atualizar_agendamento' agendamento.id %}"
-  >Atualizar informações</a
->
+  >Atualizar informações</a>
 <a href="{% url 'agendamentos:deletar_agendamento' agendamento.id %}"
-  >Excluir agendamento</a
->
+  >Excluir agendamento</a>
 {% endblock content %}

@@ -4,19 +4,68 @@
 {% bootstrap_css %}
 
 {% block content %}
+<style>
+  /* Fundo da página com um tom escuro e elegante */
+  body {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+  }
 
-<div class="row justify-content-center">
-  <div class="col-md-6 shadow p-4 rounded bg-light">
-    <h2 class="mb-4 text-center">Atualizar Agendamento</h2>
+  /* Contentor principal ocupando toda a altura da tela para centralizar */
+  .full-height-container {
+    min-height: 80vh; /* Ajusta conforme o tamanho do teu menu superior */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Estilo do cartão do formulário (Barber Style) */
+  .barber-card {
+    background-color: #2c2c2c;
+    border: 2px solid #c5a059; /* Cor bronze/dourada clássica */
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 30px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+  }
+
+  /* Ajuste nos inputs do Django Bootstrap para combinarem com o tema */
+  .form-control {
+    background-color: #3d3d3d !important;
+    border: 1px solid #444 !important;
+    color: white !important;
+  }
+
+  .form-control:focus {
+    border-color: #c5a059 !important;
+    box-shadow: 0 0 0 0.25 hrgba(197, 160, 89, 0.25) !important;
+  }
+
+  /* Título com fonte estilizada */
+  .barber-title {
+    font-family: 'Georgia', serif;
+    color: #c5a059;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+</style>
+
+<div class="container full-height-container">
+  <div class="col-md-5 col-lg-4">
+    <div class="barber-card">
+      <h2 class="mb-4 text-center barber-title">Atualizar Agendamento</h2>
+      
       <form method="post">
           {% csrf_token %}
 
           {% bootstrap_form form %}
-
-          <div class="d-grid gap-2">
-            {% bootstrap_button button_type="submit" content="Salvar Alterações" button_class="btn-success" %}
+          
+          <div class="d-grid gap-2 mt-4">
+            {% bootstrap_button button_type="submit" content="Confirmar Alteração" button_class="btn-outline-warning" %}
+            <a href="javascript:history.back()" class="btn btn-link text-muted text-decoration-none text-center">Cancelar</a>
           </div>
       </form>
+    </div>
   </div>
 </div>
 

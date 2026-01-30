@@ -21,6 +21,5 @@ class Servico(models.Model):
     preco = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
-        """Retorne uma string com os dados do serviço."""
-        dados = f"[{self.nome} - {self.descricao} - R$ {self.preco}]"
-        return dados
+        """Retorne o nome do serviço."""
+        return self.nome
