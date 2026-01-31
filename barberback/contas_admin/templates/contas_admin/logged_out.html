@@ -1,20 +1,39 @@
+{% load django_bootstrap5 %}
+
 <!doctype html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Logout | BarberBack</title>
+
+        {% bootstrap_css %}
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+        </style>
     </head>
     <body>
-        <div>
-            <h1>BarberBack</h1>
-            <br>
-            <p>Você saiu com sucesso.</p>
 
-            <div>
-                <a href="{% url 'contas_admin:login' %}"> 
+        <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+            <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;">
+                <h1 class="text-center mb-3">BarberWeb</h1>
+                <br>
+                <p class="text-center">Você saiu com sucesso.</p>
+                <a class="btn btn-primary w-100" href="{% url 'contas_admin:login' %}"> 
                     Entrar novamente</a>
             </div>
         </div>
+        
+        <div class="container-fluid py-3 bg-dark text-white">
+            <footer class="text-center mt-4">
+                <p >&copy; 2024 BarberWeb. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+
+        {% bootstrap_javascript %}
+
     </body>
 </html>
