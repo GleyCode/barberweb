@@ -10,8 +10,10 @@
         {% bootstrap_css %} 
 
     </head>
-    <body>
+    <!-- Faz o body oculpar 100% do viewport, altura mínima de 100%. -->
+    <body class="d-flex flex-column min-vh-100"> 
 
+        <!-- Barra de navegação personalizada. -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">BarberWeb</a>
@@ -124,13 +126,15 @@
             </div>
         </nav>
 
-        <main class="container mt-4">
+        <!-- Onde ficará o conteúdo das demais páginas. -->
+        <main class="container mt-5 mx-auto mb-5 flex-fill">
             {% block content %} {% endblock %}
         </main>
 
+        <!-- Rodapé personalizado. -->
         <div class="container-fluid py-3 bg-dark text-white">
             <footer class="text-center mt-4">
-                <p >&copy; 2024 BarberWeb. Todos os direitos reservados.</p>
+                <p >&copy; 2026 BarberWeb. Todos os direitos reservados.</p>
             </footer>
         </div>
 

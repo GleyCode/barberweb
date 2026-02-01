@@ -1,16 +1,32 @@
 {% extends 'barberback_app/base.html' %} 
 
-{% block content %}
-<h1>Listagem dos clientes</h1>
-<ul>
-    {% for cliente in clientes %}
-    <li>
-        <a href="{% url 'clientes:detalhes_cliente' cliente.id %}">
-          {{ cliente.nome }}</a>
-    </li>
-    {% endfor %}
-</ul>
+{% load django_bootstrap5 %}
 
-<a href="{% url 'clientes:cadastrar_cliente' %}">
-    Cadastrar novo cliente</a>
+{% block content %}
+
+<div class="container">
+    <h3 class="mb-4">Lista de Clientes Cadastrados</h3>
+    <ul class="list-group list-group-flush">
+        {% for cliente in clientes %}
+        <li class="list-group-item">
+            <a href="{% url 'clientes:detalhes_cliente' cliente.id %}"
+            class="link-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">
+            {{ cliente.nome }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    {% if is_paginated %}
+        {% bootstrap_pagination page_obj %}
+    {% endif %}
+
+    <br>
+
+    <a class="btn btn-secondary" 
+    href="{% url 'clientes:cadastrar_cliente' %}" role="button">
+        Cadastrar cliente</a>
+</div>
+
 {% endblock content %}
