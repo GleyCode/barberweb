@@ -23,12 +23,6 @@
             </div>
         </div>
     {% endfor %}
-
-    <form action="{% url 'contas_admin:logout' %}" method="post">
-        {% csrf_token %}
-        
-        {% bootstrap_button button_type="submit" content="Sair do sistema" button_class="btn btn-secondary mt-4" %}
-    </form>
 </div>
 
 {% endblock content %}

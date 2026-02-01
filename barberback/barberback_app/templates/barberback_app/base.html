@@ -122,6 +122,11 @@
                             </ul>
                         </li>
                     </ul>
+                    <form action="{% url 'contas_admin:logout' %}" method="post" role="logout" class="ms-auto">
+                    {% csrf_token %}
+        
+                    {% bootstrap_button button_type="submit" content="Sair do sistema" button_class="btn btn-outline-success" %}
+                    </form>
                 </div>
             </div>
         </nav>
