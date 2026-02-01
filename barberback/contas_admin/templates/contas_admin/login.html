@@ -19,13 +19,27 @@
 
     <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
         <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;"> <!-- conteiner do formulário -->
-            <h2 class="text-center">Login</h2>
+            <h2 class="text-center mb-5">Login</h2>
             <br>
 
+            <!-- Exibe os erros do formulário de forma elegante -->
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i> {{ error }}
+                        <button type="button" 
+                        class="btn-close" 
+                        data-bs-dismiss="alert" 
+                        aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
             <form method="post">                                        
                 {% csrf_token %}
-                                                
-                {% bootstrap_form form %}
+
+                {% bootstrap_field form.username show_errors=False %}
+                {% bootstrap_field form.password show_errors=False %}
 
                 <div class="d-grid gap-2">
                     {% bootstrap_button button_type="submit" content="Entrar" button_class="btn btn-primary" %}
