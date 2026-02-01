@@ -4,34 +4,30 @@
 
 {% block content %}
 
-<div>
-    <div class="container mt-4">
-        <h3>Próximos agendamentos do dia</h3>
-            {% for agendamento in agendamentos %}
-                <div class="card mb-3" style="width: 38rem;">
-                    <div class="card-header">
-                        {{ agendamento.data_hora|date:"H:i" }}
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{ agendamento.cliente.nome }}</h5>
-                        <p class="card-text">
-                            {{ agendamento.profissional.nome }}
-                        </p>
-                        <p class="card-text">
-                            {{ agendamento.servico.nome}}
-                        </p>
-                        <a href="{% url 'agendamentos:detalhes_agendamento' agendamento.id %}" 
-                        class="btn btn-primary">Detalhes</a>
-                    </div>
-                </div>
-            {% endfor %}
-    </div>
+<div class="container mt-4">
+    <h3 class="mb-4">Próximos agendamentos do dia</h3>
+    {% for agendamento in agendamentos %}
+        <div class="card mb-3" style="max-width: 38rem;">
+            <div class="card-header">
+                {{ agendamento.data_hora|date:"H:i" }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{ agendamento.cliente.nome }}</h5>
+                <p class="card-text">
+                    {{ agendamento.profissional.nome }}</p>
+                <p class="card-text">
+                    {{ agendamento.servico.nome}}</p>
+                <a href="{% url 'agendamentos:detalhes_agendamento' agendamento.id %}" 
+                class="btn btn-secondary">Detalhes</a>
+            </div>
+        </div>
+    {% endfor %}
 
     <form action="{% url 'contas_admin:logout' %}" method="post">
         {% csrf_token %}
         
-        {% bootstrap_button button_type="submit" content="Sair do sistema" %}
+        {% bootstrap_button button_type="submit" content="Sair do sistema" button_class="btn btn-secondary mt-4" %}
     </form>
 </div>
 
